@@ -8,7 +8,7 @@ import Animal.Size;
 
 
 public class Farm {
-private int money = 0;
+private int money = 100000;
 
 private double plocha = 100;
 
@@ -62,6 +62,16 @@ private double plocha = 100;
         if (plocha > f.getNeededArea()){
             flowers.add(f);
             plocha = plocha - f.getNeededArea();
+            money = (int) ( money - f.getPrice());
+        }
+    }
+
+    public String removeFlower(Flower f){
+        if (flowers.contains(f)){
+            flowers.remove(f);
+            return "flower removed";
+        }else {
+            return "flower doesnt exist";
         }
     }
 
